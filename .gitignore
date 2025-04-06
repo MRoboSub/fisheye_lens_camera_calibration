@@ -1,0 +1,24 @@
+# Virtual environment
+venv/
+.env/
+.venv/
+
+# VSCode settings
+.vscode/
+
+# Pytest cache
+.pytest_cache/
+
+# Build / distribution
+build/
+dist/
+
+# Environment variables
+.env
+*.env
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
