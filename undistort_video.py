@@ -24,7 +24,7 @@ D=np.array([[-0.10719568512838897], [0.07046579419530903], [-0.11468531603999366
 
 
 def main():
-    cap = cv2.VideoCapture(1, cv2.CAP_DSHOW)
+    cap = cv2.VideoCapture('/dev/video2')
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1920)
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 1080)
 

@@ -18,7 +18,9 @@ objpoints = [] # 3d point in real world space
 imgpoints = [] # 2d points in image plane.
 
 images = glob.glob('img/*.jpg')
+os.mkdir('out')
 
+N_OK = 0
 for fname in images:
     img = cv2.imread(fname)
     
@@ -33,6 +35,9 @@ for fname in images:
     ret, corners = cv2.findChessboardCorners(gray, CHECKERBOARD, cv2.CALIB_CB_ADAPTIVE_THRESH+cv2.CALIB_CB_FAST_CHECK+cv2.CALIB_CB_NORMALIZE_IMAGE)
     # If found, add object points, image points (after refining them)
     if ret == True:
+        for x, y in corners[:, 0, :]:
+            cv2.circle(img, (int(x), int(y)), 5, (255, 0, 255), 2)
+        cv2.imwrite(fname.replace('img', 'out', 1), img)
         objpoints.append(objp)
         cv2.cornerSubPix(gray,corners,(3,3),(-1,-1),subpix_criteria)
         imgpoints.append(corners)
